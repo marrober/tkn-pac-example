@@ -10,16 +10,6 @@ metadata:
     # The branch or tag we are targeting (ie: main, refs/tags/*)
     pipelinesascode.tekton.dev/on-target-branch: "main"
 
-    # Fetch the git-clone task from hub, we are able to reference later on it
-    # with taskRef and it will automatically be embedded into our pipeline.
-    pipelinesascode.tekton.dev/task: "git-clone"
-
-    # You can add more tasks by increasing the suffix number, you can specify
-    # them as array to have multiple of them.
-    # browse the tasks you want to include from hub on https://hub.tekton.dev/
-    #
-    # pipelinesascode.tekton.dev/task-2: "[curl, buildah]"
-
     # How many runs we want to keep attached to this event
     pipelinesascode.tekton.dev/max-keep-runs: "5"
 spec:
@@ -31,7 +21,7 @@ spec:
     - name: revision
       value: "{{ revision }}"
     - name: app-dir
-      value: node/layers
+      value: source
     - name: imagestream-url
       value: image-registry.openshift-image-registry.svc:5000/tkn-pac-simple-apps/my-app
 
@@ -118,27 +108,6 @@ spec:
         workspaces:
           - name: resources
             workspace: resources
-      - name: push-image-to-quay
-        params:
-        - name: quay-io-account
-          value: $(params.quay-io-account)
-        - name: quay-io-repository
-          value: $(params.quay-io-repository)
-          #
-          # Use the output parameter from the push-image-to-imagestream task that generates the tag.
-          #
-        - name: quay-io-image-tag-name
-          value: $(tasks.push-image-to-imagestream.results.new-tag)
-        - name: STORAGE_DRIVER
-          value: $(params.STORAGE_DRIVER)
-        taskRef:
-          kind: Task
-          name: push-image-to-quay
-        runAfter:
-          - push-image-to-imagestream
-        workspaces:
-        - name: resources
-          workspace: resources
   workspaces:
     - name: source
       volumeClaimTemplate:

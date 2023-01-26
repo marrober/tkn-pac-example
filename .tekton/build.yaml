@@ -32,7 +32,7 @@ spec:
 
         echo "FROM "$isname > new-dockerfile
 
-        input="dockerfile.pac"
+        input="dockerfile"
 
         while IFS= read -r line
 
