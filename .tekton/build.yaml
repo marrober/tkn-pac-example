@@ -78,7 +78,7 @@ spec:
       - --layers
       - -f
 #      - ./new-dockerfile
-      - .dockerfile
+      - dockerfile
       - -t
       - my-container-image
       - .

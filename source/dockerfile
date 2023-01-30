@@ -1,4 +1,4 @@
-FROM registry.redhat.io/rhel9/nodejs-18:latest
+FROM default-route-openshift-image-registry.apps.cluster-qrbn4.qrbn4.sandbox2884.opentlc.com/tkn-pac-example-rhpds/node-js:latest
 COPY layer.js /opt/app-root/src/layer.js
 COPY node_modules/ /opt/app-root/src/node_modules/
 USER 0
