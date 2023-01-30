@@ -1,3 +1,4 @@
+FROM registry.redhat.io/rhel9/nodejs-18:latest
 COPY layer.js /opt/app-root/src/layer.js
 COPY node_modules/ /opt/app-root/src/node_modules/
 USER 0

@@ -45,7 +45,7 @@ spec:
 
         docker://$(params.imagestream-url):$tag
 
-      image: default-route-openshift-image-registry.apps.celeron.demolab.local/pac-example/buildah:latest
+      image: registry.redhat.io/rhel8/buildah@sha256:6a68ece207bc5fd8db2dd5cc2d0b53136236fb5178eb5b71eebe5d07a3c33d13
       securityContext:
         capabilities:
           add: ["SETFCAP"]
