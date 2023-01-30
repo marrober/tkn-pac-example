@@ -1,0 +1,7 @@
+apiVersion: pipelinesascode.tekton.dev/v1alpha1
+kind: Repository
+metadata:
+  name: pac-example
+  namespace: pac-example
+spec:
+  url: https://github.com/marrober/tkn-pac-example

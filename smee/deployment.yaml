@@ -13,14 +13,15 @@ spec:
         app: gosmee
     spec:
       containers:
-        - image: ghcr.io/chmouel/gosmee:latest
+        # - image: ghcr.io/chmouel/gosmee:latest
+        - name: gosmee
+          image: image-registry.openshift-image-registry.svc:5000/pac-example/gosmee:latest
           imagePullPolicy: IfNotPresent
-          name: gosmee
           args:
             [
               "client",
               "--saveDir",
               "/tmp/save",
-              "https://smee.io/3aC3MfW0AoBzRW6",
-              "https://pipelines-as-code-controller-openshift-pipelines.apps.skylake.demolab.local",
+              "https://smee.io/8tfqo5bJhqrWru1j",
+              "https://pipelines-as-code-controller-openshift-pipelines.apps.celeron.demolab.local",
             ]
