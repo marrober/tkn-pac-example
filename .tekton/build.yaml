@@ -44,7 +44,7 @@ spec:
 
         cat new-dockerfile
 
-      image: quay.io/openshift/origin-cli:latest
+      image: default-route-openshift-image-registry.apps.celeron.demolab.local/pac-example/origin-cli:latest
       resources: {}
       securityContext:
         capabilities:
@@ -60,7 +60,7 @@ spec:
         # npm install -g npm@9.2.0
         npm install
         ls -al
-      image: default-route-openshift-image-registry.apps.skylake.demolab.local/tkn-pac-simple-apps/nodejs-16
+      image: default-route-openshift-image-registry.apps.celeron.demolab.local/pac-example/node-js:latest
       resources: {}
       securityContext:
         capabilities:
@@ -81,7 +81,7 @@ spec:
       - -t
       - my-container-image
       - .
-      image: default-route-openshift-image-registry.apps.skylake.demolab.local/tkn-pac-simple-apps/buildah
+      image: default-route-openshift-image-registry.apps.celeron.demolab.local/pac-example/buildah:latest
       resources: {}
       securityContext:
         capabilities:
@@ -95,7 +95,7 @@ spec:
       - --storage-driver=$(params.STORAGE_DRIVER)
       - --root
       - /resources/buildah-containers
-      image: default-route-openshift-image-registry.apps.skylake.demolab.local/tkn-pac-simple-apps/buildah
+      image: default-route-openshift-image-registry.apps.celeron.demolab.local/pac-example/buildah:latest
       resources: {}
       securityContext:
         capabilities:
