@@ -30,8 +30,6 @@ spec:
       value: 'false'
     - name: STORAGE_DRIVER
       value: vfs
-    - name: source-image-name
-      value: nodejs-16
       #
       #   Quay.io configuration
       #
@@ -46,7 +44,6 @@ spec:
       - name: app-dir
       - name: TLSVERIFY
       - name: STORAGE_DRIVER
-      - name: source-image-name
       - name: imagestream-url
       - name: quay-io-account
       - name: quay-io-repository
@@ -78,8 +75,6 @@ spec:
             value: $(params.STORAGE_DRIVER)
           - name: app-dir
             value: $(params.app-dir)
-          - name: source-image-name
-            value: $(params.source-image-name)
         taskRef:
           kind: Task
           name: build

@@ -14,50 +14,17 @@ spec:
       type: string
     - name: app-dir
       type: string
-    - name: source-image-name
-      type: string
   stepTemplate:
     env:
       - name: "HOME"
         value: "/tekton/home"
   steps:
-    - name: create-dockerfile
-      command:
-      - /bin/sh
-      - -c
-      args:
-      - |-
-
-#        isname=$(oc get is/$(params.source-image-name) -o jsonpath='{.status.dockerImageRepository}')
-
-#        echo "FROM "$isname > new-dockerfile
-
-#        input="dockerfile"
-
-#        while IFS= read -r line
-
-#        do
-
-#          echo "$line" >> new-dockerfile
-
-#        done < "$input"
-
-#        cat new-dockerfile
-
-      image: quay.io/openshift/origin-cli:latest
-      resources: {}
-      securityContext:
-        capabilities:
-          add:
-          - SETFCAP
-      workingDir: /source/$(params.app-dir)
     - name: package-node-app
       command:
       - /bin/sh
       - -c
       args:
       - |-
-        # npm install -g npm@9.2.0
         npm install
         ls -al
       image: registry.redhat.io/rhel8/nodejs-16
