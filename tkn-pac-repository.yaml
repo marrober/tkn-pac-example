@@ -7,4 +7,4 @@ spec:
   url: https://github.com/marrober/tkn-pac-example
   incoming:
     - targets:
-      - refs/heads/rhpds
+      - rhpds
