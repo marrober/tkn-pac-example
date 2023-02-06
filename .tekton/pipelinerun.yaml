@@ -23,7 +23,7 @@ spec:
     - name: app-dir
       value: source
     - name: imagestream-url
-      value: image-registry.openshift-image-registry.svc:5000/tkn-pac-example-rhpds/my-app
+      value: image-registry.openshift-image-registry.svc:5000/tkn-pac-example/my-app
 
     # Buildah step configuration parameters - storage driver and TLS settings.
     - name: TLSVERIFY
