@@ -7,5 +7,7 @@ If this application is used on demolab there may be an issue regarding the pulli
 To cache the images use the commands :
 
 oc import-image node-js --from=registry.redhat.io/rhel9/nodejs-18:latest --confirm
+
 oc import-image origin-cli --from=quay.io/openshift/origin-cli:latest --confirm
+
 oc import-image buildah --from=registry.redhat.io/rhel8/buildah:latest --confirm

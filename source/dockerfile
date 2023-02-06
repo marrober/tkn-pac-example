@@ -1,4 +1,4 @@
-FROM default-route-openshift-image-registry.apps.cluster-qrbn4.qrbn4.sandbox2884.opentlc.com/tkn-pac-example-rhpds/node-js:latest
+FROM registry.access.redhat.com/ubi8/nodejs-18@sha256:8ab68f448964952fd12a45ee7c22ddf1aafba721b5ca32b741efdcfb279668ee
 COPY layer.js /opt/app-root/src/layer.js
 COPY node_modules/ /opt/app-root/src/node_modules/
 USER 0
